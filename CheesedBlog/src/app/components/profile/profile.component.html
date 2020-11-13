@@ -1,0 +1,57 @@
+<!-- Change Password Form -->
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>Change your paswword</mat-card-title>
+    <mat-card-subtitle
+      >Enter your new password below, and again in the confirmation
+      box.</mat-card-subtitle
+    >
+  </mat-card-header>
+  <form class="form" [formGroup]="changePasswordForm">
+    <mat-card-content>
+      <mat-form-field class="form-field">
+        <mat-label>New Password</mat-label>
+        <input matInput formControlName="password" type="password" />
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput formControlName="confirmPassword" type="password" />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        (click)="onSubmitNewPassword()"
+        mat-raised-button
+        color="primary"
+        [disabled]="changePasswordForm.invalid"
+      >
+        Submit
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>
+<!-- Delete User Form -->
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>Delete Account</mat-card-title>
+    <mat-card-subtitle>This is an irreversible action! </mat-card-subtitle>
+  </mat-card-header>
+  <form [formGroup]="deleteUserForm">
+    <mat-card-content>
+      <mat-form-field class="example-full-width">
+        <mat-label>Email confirmation</mat-label>
+        <input matInput type="email" formControlName="emailConfirmation" />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        (click)="onSubmitDeleteUser()"
+        mat-raised-button
+        color="primary"
+        [disabled]="deleteUserForm.invalid"
+      >
+        Submit
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

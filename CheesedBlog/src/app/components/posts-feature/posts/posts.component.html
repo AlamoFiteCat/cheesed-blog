@@ -1,0 +1,61 @@
+<div class="hero-section">
+  <h1>
+    Coding ideas,
+    <br />
+    and a bit of everything
+  </h1>
+  <h2>
+    Find out why we did this!
+    <br />
+    Maybe apply as a content writer?
+  </h2>
+</div>
+<div class="content">
+  <div class="posts">
+    <mat-card class="post-card" *ngFor="let post of currentPosts">
+      <mat-card-header class="card-header">
+        <mat-card-title>{{ post?.title }}</mat-card-title>
+        <mat-card-subtitle>{{ post?.author }}</mat-card-subtitle>
+        <mat-card-subtitle>{{
+          post?.date.seconds * 1000 | date
+        }}</mat-card-subtitle>
+        <!-- EDIT BUTTON -->
+        <button
+          *ngIf="post?.author == currentUser?.currentUsername"
+          mat-icon-button
+          class="edit-btn"
+          (click)="onPostEditDialogOpen(post)"
+        >
+          <mat-icon> text_fields </mat-icon>
+        </button>
+        <!-- DELETE BUTTON -->
+        <button
+          *ngIf="post?.author == currentUser?.currentUsername"
+          mat-icon-button
+          class="delete-btn"
+          (click)="onPostDelete(post?.id)"
+        >
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content class="card-body">
+        <quill-view-html
+          [content]="post?.text"
+          format="text"
+          theme="snow"
+        ></quill-view-html>
+        <mat-chip-list>
+          <mat-chip color="accent" selected *ngFor="let tag of post?.tags">{{
+            tag
+          }}</mat-chip>
+        </mat-chip-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="widgets">
+    <app-weather-card class="widget"></app-weather-card>
+    <app-date-trivia class="widget"></app-date-trivia>
+    <app-tweets [tweets]="tweetArray" class="widget"></app-tweets>
+  </div>
+</div>

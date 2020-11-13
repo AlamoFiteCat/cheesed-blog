@@ -1,0 +1,12 @@
+<div class="container">
+  <mat-card *ngFor="let tweet of tweets" class="tweet-card">
+    <mat-card-header>
+      <img [src]="tweet?.userImage" alt="" class="user-image" />
+      <mat-card-subtitle>{{ tweet?.userScreenName }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ tweet?.userDescription }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ tweet?.text }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,80 @@
+.card-body {
+  background-color: #34495e;
+  border-radius: 8px;
+  color: #ecf0f1;
+  margin-top: 16px;
+  padding: 8px;
+}
+
+.edit-btn {
+  color: #f1c40f;
+  position: absolute;
+  top: 6px;
+  left: 88%;
+}
+
+.delete-btn {
+  color: #c0392b;
+  position: absolute;
+  top: 6px;
+  left: 93%;
+}
+
+.hero-section {
+  height: 380px;
+  position: relative;
+  top: -64px;
+
+  background-image: url("../../../../assets//forest_colors_texture_stock_dl_by_astoko_d9blryf.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  h1 {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 64px;
+    line-height: 4rem;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+  }
+
+  h2 {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 2rem;
+    position: absolute;
+    top: 55%;
+    left: 15%;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.posts {
+  grid-area: 1 / 1 / 6 / 5;
+}
+.widgets {
+  grid-area: 1 / 5 / 6 / 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-right: 16px;
+
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.widget {
+  margin-top: 16px;
+  width: 375px;
+}

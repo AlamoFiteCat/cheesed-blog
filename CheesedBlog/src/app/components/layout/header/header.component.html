@@ -1,0 +1,49 @@
+<mat-toolbar class="header">
+  <button routerLink="posts" mat-icon-button color="accent">
+    <mat-icon>restaurant_menu</mat-icon>
+  </button>
+  <h5 *ngIf="!!currentUser" class="text-light">
+    Hello, {{ currentUser?.currentUsername }}!
+  </h5>
+  <span class="spacer"></span>
+  <button
+    *ngIf="!userLogged"
+    routerLink="/auth/register"
+    mat-icon-button
+    color="primary"
+  >
+    <mat-icon>person_add</mat-icon>
+  </button>
+  <button
+    *ngIf="!userLogged"
+    mat-icon-button
+    color="accent"
+    routerLink="/auth/login"
+  >
+    <mat-icon>login</mat-icon>
+  </button>
+  <button
+    *ngIf="userLogged"
+    mat-icon-button
+    color="accent"
+    routerLink="profile"
+  >
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <button
+    routerLink="posts/write"
+    *ngIf="userLogged"
+    mat-icon-button
+    color="primary"
+  >
+    <mat-icon>create</mat-icon>
+  </button>
+  <button
+    *ngIf="userLogged"
+    (click)="onUserLogout()"
+    mat-icon-button
+    color="warn"
+  >
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>

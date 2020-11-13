@@ -1,0 +1,36 @@
+<mat-card class="weather-card">
+  <mat-card-header>
+    <mat-card-subtitle>{{
+      data.obtainedOn | date: "medium"
+    }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content class="weather-content">
+    <div class="textual">
+      <h1 class="weather-temperature">
+        {{ data.temperature | number: "1.1-2" }} °C
+      </h1>
+      <p class="text-muted weather-pressure">
+        Pressure: {{ data.pressure }} hPa
+      </p>
+      <p class="text-muted weather-humidity">Humidity: {{ data.humidity }} %</p>
+      <p class="text-muted weather-description">
+        {{ data.description }}
+      </p>
+    </div>
+    <div class="weather-visual">
+      <img [src]="data.icon" alt="weather icon" />
+      <p class="text-muted weather-name">{{ data.name }}</p>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      class="refresh-button"
+      mat-icon-button
+      color="accent"
+      (click)="getWeatherData()"
+    >
+      <mat-icon>cached</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

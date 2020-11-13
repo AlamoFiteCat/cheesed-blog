@@ -1,0 +1,26 @@
+{
+  "name": "cheesed-api",
+  "version": "1.0.0",
+  "description": "The API for a blog project.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "AlamoFiteCat",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "firebase": "^7.24.0",
+    "firebase-admin": "^9.2.0",
+    "helmet": "^4.2.0",
+    "install": "^0.13.0",
+    "nodemon": "^2.0.6",
+    "npm": "^6.14.8",
+    "socket.io": "^3.0.0",
+    "twit": "^2.2.11",
+    "uuid": "^8.3.1"
+  }
+}

@@ -1,0 +1,47 @@
+.weather-card {
+  background: #2c3e50;
+}
+
+.weather-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.weather-name {
+  position: relative;
+  top: -24px;
+  left: 28px;
+}
+
+.weather-temperature {
+  font-size: 58px;
+  position: relative;
+  top: 30px;
+  left: 16px;
+}
+
+.weather-pressure {
+  position: relative;
+  top: 34px;
+  left: 16%;
+}
+
+.weather-humidity {
+  position: relative;
+  top: 18px;
+  left: 16%;
+}
+
+.weather-description {
+  position: relative;
+  top: 2px;
+  left: 16%;
+  text-transform: capitalize;
+}
+
+.refresh-button {
+  position: relative;
+  top: 0%;
+  left: 90%;
+}

@@ -1,0 +1,32 @@
+<mat-card class="card">
+  <mat-card-header></mat-card-header>
+  <form class="form" [formGroup]="postWriteForm">
+    <mat-card-content>
+      <mat-form-field class="form-field">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" formControlName="title" />
+      </mat-form-field>
+      <label>Write your story...</label>
+      <div class="text-editor">
+        <quill-editor
+          [styles]="{ height: '350px' }"
+          formControlName="postText"
+        ></quill-editor>
+      </div>
+      <mat-form-field class="form-field">
+        <mat-label>Tags</mat-label>
+        <input matInput type="text" formControlName="tags" />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        (click)="onSubmitPost()"
+        mat-raised-button
+        color="accent"
+        [disabled]="postWriteForm.invalid"
+      >
+        Submit
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>
