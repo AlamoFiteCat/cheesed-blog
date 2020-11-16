@@ -46,8 +46,8 @@ const twitterConfig = {
 const Twit = require("twit");
 const T = new Twit(twitterConfig);
 
-const PORT = 8080;
-const HOST = "0.0.0.0";
+const PORT = process.env.PORT || 8080;
+const HOST = process.env.HOST || "0.0.0.0";
 
 app.set("trust proxy", 1);
 
