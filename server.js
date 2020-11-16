@@ -91,6 +91,7 @@ app.use(
         "'self'",
         "http://openweathermap.org/",
         "https://pbs.twimg.com/",
+        "https://storage.googleapis.com/",
       ],
     },
   })
