@@ -4,8 +4,9 @@
   "description": "The API for a blog project.",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "dev-start": "ENVIRONMENT=dev node server.js"
   },
   "author": "AlamoFiteCat",
   "license": "MIT",
