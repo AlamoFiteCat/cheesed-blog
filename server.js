@@ -17,41 +17,6 @@ const session = require("./const/session.const");
 const app = express();
 const http = require("http").createServer(app);
 
-// [Helmet Security]
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'self'", "'unsafe-inline'"],
-      scriptSrc: ["'self'", "example.com"],
-      objectSrc: ["'none'"],
-      imgSrc: ["'self'"],
-      upgradeInsecureRequests: [],
-    },
-  })
-);
-
-app.use(helmet.hidePoweredBy());
-app.use(
-  helmet.referrerPolicy({
-    policy: "no-referrer",
-  })
-);
-app.use(
-  helmet.hsts({
-    maxAge: 0,
-  })
-);
-app.use(helmet.ieNoOpen());
-app.use(helmet.noSniff());
-app.use(
-  helmet({
-    frameguard: {
-      action: "deny",
-    },
-  })
-);
-app.use(helmet.xssFilter());
-
 // [SocketIO]
 const io = require("socket.io")(http, {
   cors: {
@@ -85,6 +50,51 @@ const PORT = 8080;
 const HOST = "0.0.0.0";
 
 app.set("trust proxy", 1);
+
+// [Helmet Security]
+app.use(helmet.hidePoweredBy());
+app.use(
+  helmet.referrerPolicy({
+    policy: "no-referrer",
+  })
+);
+app.use(
+  helmet.hsts({
+    maxAge: 0,
+  })
+);
+app.use(helmet.ieNoOpen());
+app.use(helmet.noSniff());
+
+app.use(
+  helmet({
+    frameguard: {
+      action: "deny",
+    },
+  })
+);
+
+app.use(helmet.xssFilter());
+
+// [Helmet CSP]
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      "default-src": ["'self'"],
+      "connect-src": ["'self'", "http://numbersapi.com/"],
+      "style-src": ["'self'", "https: 'unsafe-inline'"],
+      "font-src": ["'self'", "https: data:"],
+      "script-src": ["'self'"],
+      "object-src": ["'none'"],
+      "frame-src": ["'self'", "https://www.youtube.com/"],
+      "img-src": [
+        "'self'",
+        "http://openweathermap.org/",
+        "https://pbs.twimg.com/",
+      ],
+    },
+  })
+);
 app.use(cors);
 app.use(express.static(path.join(__dirname, "static")));
 
@@ -103,7 +113,7 @@ app.use("/api", router);
 
 io.on("connection", (socket) => {
   // [Twitter Stream]
-  T.get("search/tweets", { q: "#coding", count: 5 }, (err, data, response) => {
+  T.get("search/tweets", { q: "#angular", count: 5 }, (err, data, response) => {
     const tweetArray = [];
 
     data.statuses.forEach((tweet) => {
@@ -124,7 +134,7 @@ io.on("connection", (socket) => {
   });
 
   const stream = T.stream("statuses/filter", {
-    track: "#coding",
+    track: "#angular",
     language: "en",
   });
 
