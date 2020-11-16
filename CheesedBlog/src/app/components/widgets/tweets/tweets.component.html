@@ -1,4 +1,4 @@
-<div class="container">
+<mat-card class="container">
   <mat-card *ngFor="let tweet of tweets" class="tweet-card">
     <mat-card-header>
       <img [src]="tweet?.userImage" alt="" class="user-image" />
@@ -9,4 +9,4 @@
       <p>{{ tweet?.text }}</p>
     </mat-card-content>
   </mat-card>
-</div>
+</mat-card>

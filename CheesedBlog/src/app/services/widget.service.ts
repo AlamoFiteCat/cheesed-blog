@@ -26,16 +26,4 @@ export class WidgetService {
         }
       );
   }
-
-  fetchDateTrivia() {
-    const today = new Date();
-    this.http
-      .get(
-        `http://numbersapi.com/${today.getMonth() + 1}/${today.getDate()}/date`,
-        { responseType: 'text' }
-      )
-      .subscribe((response: string) => {
-        this.dateTriviaSubject.next(response);
-      });
-  }
 }
